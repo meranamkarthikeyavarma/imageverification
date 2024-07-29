@@ -1,6 +1,6 @@
 
 numpy==1.23.5
-tensorflow==2.14.0
+# tensorflow==2.14.0
 deepface==0.0.75
 mtcnn==0.1.0
 pymongo==3.11.3
