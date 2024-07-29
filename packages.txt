@@ -1,3 +1,10 @@
+
+
 libgl1
 libgl1-mesa-glx
-libglib2.0-0
+libgl1-mesa-dri
+libglvnd0
+libx11-xcb1
+libxcb-glx0
+libxcb-dri3-0
+
