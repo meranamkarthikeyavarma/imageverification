@@ -6,7 +6,8 @@ from mtcnn import MTCNN
 from pymongo import MongoClient
 
 # MongoDB connection details
-mongo_uri = "mongodb+srv://seetarama07:LdrF4mPtz5zdQWsY@imageverification.nywflxg.mongodb.net/?retryWrites=true&w=majority&appName=imageverification"  # Replace with your MongoDB Atlas URI
+mongo_uri = "mongodb+srv://seetarama07:LdrF4mPtz5zdQWsY@imageverification.nywflxg.mongodb.net/?retryWrites=true&w=majority&ssl=true&appName=imageverification"
+
 db_name = "imageverificationdb"  # Your database name in MongoDB Atlas
 collection_name = "teams"  # Your collection name
 
