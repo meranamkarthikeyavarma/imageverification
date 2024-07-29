@@ -6,11 +6,11 @@ from mtcnn import MTCNN
 from pymongo import MongoClient
 
 # MongoDB connection details
-mongo_uri = "mongodb://localhost:27017/"  # Replace with your MongoDB URI
-db_name = "practise"
-collection_name = "sample"
+mongo_uri = "mongodb+srv://seetarama07:LdrF4mPtz5zdQWsY@imageverification.nywflxg.mongodb.net/?retryWrites=true&w=majority&appName=imageverification"  # Replace with your MongoDB Atlas URI
+db_name = "imageverificationdb"  # Your database name in MongoDB Atlas
+collection_name = "teams"  # Your collection name
 
-# Connect to MongoDB
+# Connect to MongoDB Atlas
 client = MongoClient(mongo_uri)
 db = client[db_name]
 collection = db[collection_name]
@@ -203,16 +203,14 @@ def add_candidates():
                     if st.session_state.current_candidate == num_candidates:
                         team_data = {team_name: {f"person{i+1}": st.session_state.candidates[i] for i in range(num_candidates)}}
                         collection.insert_one(team_data)
-                        st.success(f'Team "{team_name}" with {num_candidates} candidates has been created!')
-                        navigate_to_page("home")
-                    else:
-                        st.experimental_rerun()
+                        st.success("All candidates registered successfully.")
+                        st.session_state.current_page = "home"
                 else:
-                    st.error("No face detected in the uploaded image. Please try again with a different image.")
+                    st.error("No face detected in the image. Please upload an image with a clear face.")
             else:
                 st.error("Please upload an image for the candidate.")
-
-
+    else:
+        st.success("All candidates registered successfully.")
 
 def verify():
     st.title("Verify")
@@ -301,18 +299,14 @@ def verify():
                 cap.release()
 
 
-# Main app logic
-def main():
-    pages = {
-        "home": home,
-        "register": register,
-        "add_candidates": add_candidates,
-        "test_model": test_model,
-        "verify": verify,
-    }
-
-    current_page = st.session_state.current_page
-    pages[current_page]()
-
-if __name__ == "__main__":
-    main()
+# Page navigation
+if st.session_state.current_page == "home":
+    home()
+elif st.session_state.current_page == "test_model":
+    test_model()
+elif st.session_state.current_page == "register":
+    register()
+elif st.session_state.current_page == "add_candidates":
+    add_candidates()
+elif st.session_state.current_page == "verify":
+    verify()
