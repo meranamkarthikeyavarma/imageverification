@@ -1,15 +1,17 @@
-
+import streamlit as st
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 
 uri = "mongodb+srv://seetarama07:LdrF4mPtz5zdQWsY@imageverification.nywflxg.mongodb.net/?retryWrites=true&w=majority&appName=imageverification"
 
-# Create a new client and connect to the server
+st.write("Before creating client")
 client = MongoClient(uri, server_api=ServerApi('1'))
+st.write("After creating client")
 
-# Send a ping to confirm a successful connection
 try:
+    st.write("Before pinging")
     client.admin.command('ping')
-    print("Pinged your deployment. You successfully connected to MongoDB!")
+    st.write("Pinged your deployment. You successfully connected to MongoDB!")
 except Exception as e:
-    print(e)
+    st.write(e)
+    st.write("Exception occurred")
