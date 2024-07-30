@@ -10,7 +10,7 @@ client = MongoClient(mongo_uri)
 db = client[db_name]
 collection = db[collection_name]
 
-# Example query
-team_name = "example_team"
-team = collection.find_one({"team_name": team_name})
-print(team)
+# # Example query
+# team_name = "example_team"
+# team = collection.find_one({"team_name": team_name})
+# print(team)
