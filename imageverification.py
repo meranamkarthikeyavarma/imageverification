@@ -3,7 +3,7 @@ from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 from pymongo.errors import ConnectionFailure
 
-uri = "mongodb+srv://seetarama07:LdrF4mPtz5zdQWsY@imageverification.nywflxg.mongodb.net/?retryWrites=true&w=majority&ssl=false"
+uri = "mongodb+srv://seetarama07:seetarama07@imageverification.nywflxg.mongodb.net/?retryWrites=true&w=majority&appName=imageverification"
 
 st.write("Before creating client")
 client = MongoClient(uri, server_api=ServerApi('1'), serverSelectionTimeoutMS=10000)
