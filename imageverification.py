@@ -3,7 +3,7 @@ from pymongo import MongoClient, errors
 
 # MongoDB connection details
 mongo_uri = "mongodb+srv://seetarama07:LdrF4mPtz5zdQWsY@imageverification.nywflxg.mongodb.net/?retryWrites=true&w=majority&appName=imageverification"
-db_name = "imageverificationDB"
+db_name = "imageverificationdb"
 collection_name = "teams"
 
 def connect_to_mongodb(uri, db_name, collection_name):
